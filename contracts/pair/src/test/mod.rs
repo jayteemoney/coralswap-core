@@ -1,32 +1,19 @@
-#![cfg(test)]
+// ============================================================================
+// Test Modules
+// ============================================================================
+//
+// Each submodule contains a focused set of unit tests for one aspect of the
+// Pair contract.  All modules live under `contracts/pair/src/test/` and are
+// gated behind `#[cfg(test)]` via the parent `lib.rs`.
+//
+// test/
+//   mod.rs           — this file (re-exports + shared helpers)
+//   swap_math.rs     — pure-function tests for swap math, fee deduction,
+//                      K-invariant, overflow, symmetry, etc.
+//   events.rs        — PairEvents emission assertions for every event type
+//   dynamic_fee.rs   — unit tests for dynamic fee engine (volatility, decay)
+//
+// ---------------------------------------------------------------------------
 
-use soroban_sdk::Env;
-
-mod pair_tests {
-    use super::*;
-
-    #[test]
-    fn test_placeholder_swap_with_dynamic_fee() {
-        let _env = Env::default();
-    }
-
-    #[test]
-    fn test_placeholder_flash_loan_repayment() {
-        let _env = Env::default();
-    }
-
-    #[test]
-    fn test_placeholder_reentrancy_blocked() {
-        let _env = Env::default();
-    }
-
-    #[test]
-    fn test_placeholder_stale_fee_decay() {
-        let _env = Env::default();
-    }
-
-    #[test]
-    fn test_placeholder_payload_size_cap() {
-        let _env = Env::default();
-    }
-}
+mod events;
+mod swap_math;
